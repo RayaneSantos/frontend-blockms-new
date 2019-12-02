@@ -148,7 +148,7 @@ export default function Start({ history }) {
       return (
         <tr>
           <td> 
-            <button className="btn-teste" 
+            <button className="btn-teste" type="button" 
             onClick={() => this.theButtonWork(this.props.id)}> 
             </button>
           </td>
