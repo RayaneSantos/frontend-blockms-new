@@ -139,16 +139,20 @@ export default function Start({ history }) {
     theButtonWork(id) {
       localStorage.setItem('clienteId', id);
       const teste = localStorage.getItem('clienteId');
-      console.log("ID cliente-LS: ", teste)
+      localStorage.setItem('clienteNome', this.props.nome);
+      //console.log("ID cliente-LS: ", teste)
+      //console.log("ID cliente-LS: ", nomeCliente)
     }
 
     render() {
       return (
         <tr>
-          <td>
-            <button type="button" onClick={() => this.theButtonWork(this.props.id)}>
-              {this.props.nome}
-            </button></td>
+          <td> 
+            <button className="btn-teste" type="button" 
+            onClick={() => this.theButtonWork(this.props.id)}> 
+            </button>
+          </td>
+          <td>{this.props.nome}</td>
           <td>{this.props.cpf}</td>
           <td>{this.props.rg}</td>
         </tr>
@@ -169,6 +173,7 @@ export default function Start({ history }) {
             <tbody>
 
               <tr>
+                <th></th>
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>RG</th>
@@ -193,7 +198,7 @@ export default function Start({ history }) {
     constructor(props) {
       super(props);
 
-      this.state = {value: 'Select an Option'};
+      this.state = { value: 'Select an Option' };
     }
     onChange(e) {
       this.setState({
@@ -238,6 +243,8 @@ export default function Start({ history }) {
 
 
           <SearchApp data={clientes} />
+
+        <label>Cliente: {localStorage.getItem('clienteNome')}</label>
         </form>
       </div>
       <div style={{ "float": "left" }} >
